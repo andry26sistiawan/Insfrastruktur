@@ -11,6 +11,7 @@ namespace Infra.DataAccess.Repository
         public string Database = "myFirstDatabase";
         public string TestCollection = "Test";
         public string MahasiswaCollection = "Mahasiswa";
+        public string FakultasCollection = "Fakultas";
 
     }
 

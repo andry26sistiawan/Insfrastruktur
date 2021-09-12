@@ -29,5 +29,22 @@ namespace Infra.DataAccess.Repository
             _mahasiswa.InsertOneAsync(mahasiswa).GetAwaiter();
             return mahasiswa;
         }
+
+        public async Task<Mahasiswa> GetByNIP(string nip)
+        {
+            var res = await _mahasiswa.Find(x => x.NIP == nip).FirstOrDefaultAsync();
+            return res;
+        }
+
+        public async Task<List<Mahasiswa>> CreateListMahasiswa(List<Mahasiswa> data)
+        {
+            _mahasiswa.InsertManyAsync(data).GetAwaiter().GetResult();
+            return data;
+        }
+        public async Task<List<Mahasiswa>> GetMahasiswas()
+        {
+            var res = await _mahasiswa.Find(Mahasiswa => true).ToListAsync();
+            return res;
+        }
     }
 }
