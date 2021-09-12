@@ -88,7 +88,7 @@ namespace Infra.FrontEndAPI
             string requestBody = await new StreamReader(req.Body).ReadToEndAsync();
             var param = JsonConvert.DeserializeObject<Test>(requestBody);
 
-            var res = testService.InsertTest(param);
+            var res = await testService.InsertTest(param);
             return new OkObjectResult(res);
         }
 
